@@ -1,0 +1,244 @@
+{
+  "input": {
+    "summary": "中医食养辨证体系",
+    "deep_analysis": {
+      "frameworks": ["按证型分类（痰湿/气虚/阴虚）", "整体观辨证"],
+      "assumptions": ["人与自然相应", "食疗先于药疗"],
+      "boundaries": ["不适用于急性危重病", "个体差异大"],
+      "meta_patterns": ["阴阳对立统一", "五行相生相克"],
+      "gaps": ["缺个体化定量工具", "缺现代科学验证方法"]
+    }
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "name": "天地开辟",
+      "daemons": [
+        {
+          "daemon_id": "D1",
+          "discipline": "物理学",
+          "target_structure": "框架",
+          "strategy": "结构对撞",
+          "collision_products": [
+            {
+              "idea": "证型即相空间：中医证型分类 vs 物理学相态分类，都是对系统状态的离散化描述",
+              "type": "裂缝",
+              "confidence": "类比",
+              "value": "高",
+              "derivation": "物理学的相图把物质状态分为固/液/气，中医把人体状态分为寒/热/虚/实——都是连续空间的离散分区"
+            },
+            {
+              "idea": "临界点假说：证型转换可能存在类似相变的临界现象",
+              "type": "裂缝",
+              "confidence": "猜想",
+              "value": "高",
+              "derivation": "相变理论中，微小的参数变化可在临界点引发剧烈状态跃迁——证型转换是否也有类似的临界点？"
+            }
+          ],
+          "return_block": {
+            "reusable_patterns": ["相空间映射法：任何分类体系都可映射为相空间"],
+            "gotchas": ["物理学是精确的，中医是模糊的——映射时不要强行精确化"],
+            "open_questions": ["证型转换是否可量化为临界现象？"],
+            "should_promote": ["相空间映射法"],
+            "do_not_promote": []
+          }
+        },
+        {
+          "daemon_id": "D2",
+          "discipline": "道家",
+          "target_structure": "假设",
+          "strategy": "假设对撞",
+          "collision_products": [
+            {
+              "idea": "无为而食：道家'无为'思想与'食疗先于药疗'并不矛盾——无为是不强干预，食疗正是不强干预",
+              "type": "矛盾",
+              "confidence": "实推",
+              "value": "中",
+              "derivation": "道家的无为不是不作为，而是顺其自然——食疗正是顺应身体自然恢复力"
+            }
+          ],
+          "return_block": {
+            "reusable_patterns": [],
+            "gotchas": [],
+            "open_questions": ["'无为而食'能否发展为一种饮食哲学？"],
+            "should_promote": [],
+            "do_not_promote": []
+          }
+        },
+        {
+          "daemon_id": "D3",
+          "discipline": "计算机科学",
+          "target_structure": "空缺",
+          "strategy": "缺失注入",
+          "collision_products": [
+            {
+              "idea": "推荐系统迁移：把协同过滤算法的逻辑迁移到食养——用户画像→证型匹配→食材推荐→动态反馈调整",
+              "type": "迁移",
+              "confidence": "实推",
+              "value": "高",
+              "derivation": "中医缺个体化定量工具，计算机科学的推荐系统正是解决'个体化匹配'的成熟方法"
+            }
+          ],
+          "return_block": {
+            "reusable_patterns": ["推荐系统框架可迁移到任何'个体化匹配'场景"],
+            "gotchas": ["协同过滤需要大量数据，中医领域数据稀缺"],
+            "open_questions": [],
+            "should_promote": ["推荐系统迁移框架"],
+            "do_not_promote": []
+          }
+        },
+        {
+          "daemon_id": "D4",
+          "discipline": "建筑学",
+          "target_structure": "元模式",
+          "strategy": "尺度跳跃",
+          "collision_products": [
+            {
+              "idea": "食疗如建筑：建筑是'形式追随功能'，食疗是'食材追随证型'——两者都是约束条件下的创造性设计",
+              "type": "跳跃",
+              "confidence": "类比",
+              "value": "中",
+              "derivation": "建筑设计在功能/美学/结构约束下创造空间，食疗在证型/口味/可及性约束下创造食谱"
+            }
+          ],
+          "return_block": {
+            "reusable_patterns": [],
+            "gotchas": [],
+            "open_questions": ["建筑学的'空间'概念能否映射为食养的'营养空间'？"],
+            "should_promote": [],
+            "do_not_promote": []
+          }
+        }
+      ],
+      "hub_seeds": [
+        "证型即相空间（物理学裂缝）",
+        "推荐系统迁移（计算机科学迁移）",
+        "无为而食（道家矛盾）",
+        "食疗如建筑（建筑学跳跃）"
+      ]
+    },
+    {
+      "round": 2,
+      "name": "万物萌生",
+      "daemons": [
+        {
+          "daemon_id": "D5",
+          "discipline": "控制论",
+          "target_seed": "证型即相空间",
+          "strategy": "结构对撞",
+          "collision_products": [
+            {
+              "idea": "负反馈健康模型：人体是自稳态系统，证型是稳态被打破后的状态——食疗的作用是提供负反馈信号帮助系统回归稳态",
+              "type": "缝合",
+              "confidence": "实推",
+              "value": "高",
+              "derivation": "控制论的负反馈调节 + 物理学的相态概念 + 中医的整体观 → 人体是自组织系统，食疗是外部调控信号"
+            }
+          ],
+          "return_block": {
+            "reusable_patterns": ["负反馈调控模型可迁移到任何自稳态系统"],
+            "gotchas": [],
+            "open_questions": [],
+            "should_promote": ["负反馈健康模型"],
+            "do_not_promote": []
+          }
+        },
+        {
+          "daemon_id": "D6",
+          "discipline": "心理学",
+          "target_seed": "无为而食",
+          "strategy": "假设对撞",
+          "collision_products": [
+            {
+              "idea": "正念饮食：道家无为 + 心理学正念 = 不强迫自己吃什么，而是专注感受身体真正需要什么",
+              "type": "缝合",
+              "confidence": "类比",
+              "value": "高",
+              "derivation": "正念饮食已有实证研究，道家的'无为'提供了哲学根基，两者缝合产生'无为而食'的实践方法"
+            }
+          ],
+          "return_block": {
+            "reusable_patterns": [],
+            "gotchas": ["正念饮食的效果因人而异，不能作为普适方案"],
+            "open_questions": [],
+            "should_promote": [],
+            "do_not_promote": []
+          }
+        }
+      ],
+      "hub_semi_products": [
+        "负反馈健康模型（控制论+物理学+中医缝合）",
+        "正念饮食实践法（道家+心理学缝合）"
+      ]
+    },
+    {
+      "round": 3,
+      "name": "三角定圆",
+      "daemons": [
+        {
+          "daemon_id": "D7",
+          "discipline": "佛学",
+          "target_semi_product": "负反馈健康模型",
+          "strategy": "假设对撞",
+          "collision_products": [
+            {
+              "idea": "缘起性空与稳态：佛学认为一切现象是因缘和合、没有独立自性——这与稳态模型的'动态平衡'不矛盾，反而深化了它：稳态不是固定的平衡，而是不断变化的缘起过程中的暂时稳定",
+              "type": "矛盾",
+              "confidence": "类比",
+              "value": "高",
+              "derivation": "佛学的缘起论挑战了稳态的'静态'假设——真正的健康不是固定在某一点，而是在变化中持续调整"
+            }
+          ],
+          "return_block": {
+            "reusable_patterns": [],
+            "gotchas": [],
+            "open_questions": ["动态稳态如何量化？"],
+            "should_promote": [],
+            "do_not_promote": []
+          }
+        },
+        {
+          "daemon_id": "D8",
+          "discipline": "天文学",
+          "target_semi_product": "负反馈健康模型",
+          "strategy": "尺度跳跃",
+          "collision_products": [
+            {
+              "idea": "轨道稳定性隐喻：天体在引力平衡中保持轨道稳定，人体在代谢平衡中保持健康稳定——扰动不大的系统能自我回归，扰动过大会'脱轨'",
+              "type": "跳跃",
+              "confidence": "猜想",
+              "value": "中",
+              "derivation": "从天体力学到代谢力学：万有引力→代谢力，轨道→健康状态，扰动→病理因素"
+            }
+          ],
+          "return_block": {
+            "reusable_patterns": ["轨道稳定性可作为任何动态平衡系统的隐喻"],
+            "gotchas": ["天文学是精确的，人体是混沌的——隐喻不宜过度推演"],
+            "open_questions": [],
+            "should_promote": ["轨道稳定性隐喻"],
+            "do_not_promote": []
+          }
+        }
+      ],
+      "final_judgments": [
+        {
+          "semi_product": "负反馈健康模型",
+          "verdict": "成型",
+          "reasoning": "经佛学缘起论深化为'动态稳态'，经天文学轨道隐喻提供宏观视角，模型从静态平衡升级为动态平衡"
+        },
+        {
+          "semi_product": "正念饮食实践法",
+          "verdict": "可修",
+          "reasoning": "正念饮食已有实证，但与'无为而食'的缝合还需更多文化适配，不能直接照搬西方正念框架"
+        }
+      ]
+    }
+  ],
+  "final_output": {
+    "theory": "动态稳态食养理论：健康不是固定在某一点的静态平衡，而是在代谢、环境、情绪等因缘不断变化中持续调整的动态稳态。食疗的作用是提供负反馈调控信号，帮助人体从'脱轨'状态回归稳态轨道。证型是稳态被打破后的相态标识，食材是调控信号的具体载体。",
+    "derivation_path": "中医证型体系→物理学相空间映射→控制论负反馈模型→佛学缘起深化为动态稳态→天文学轨道隐喻验证",
+    "open_questions": ["动态稳态如何量化？", "正念饮食如何适配东方文化？"],
+    "confidence_overall": "类比",
+    "valuable_failures": ["轨道稳定性隐喻——启发价值高但不可过度推演"]
+  }
+}
