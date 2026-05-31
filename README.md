@@ -1,5 +1,9 @@
 # 万物生 · 跨学科创造力引擎
 
+<p align="center">
+  <img src="wusheng-banner.png" alt="万物生" width="800">
+</p>
+
 > **一生二，二生三，三生万物。我不蒸馏，我创造。**
 
 ## 这是什么
