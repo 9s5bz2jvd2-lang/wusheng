@@ -40,7 +40,7 @@ Input content
   → Round 1: Heaven and Earth Open (breadth) → thought seeds
   → Round 2: All Things Sprout (depth) → semi-formed theory
   → Round 3: Triangle Fixes the Circle (validation) → formed theory
-  → Visual outputs: circle diagram + network graph + inference-path tree
+  → Visual outputs: circle diagram + network graph + inference-path tree + multi-angle advice map
 ```
 
 **One point opens heaven and earth; two points set direction; three points close the circle. Three rounds of collision, and all things begin to grow.**
@@ -64,13 +64,14 @@ Input content
 
 ## Visual Outputs
 
-Three graphics are generated automatically by Python scripts:
+Four graphics are generated automatically by Python scripts:
 
 | Graphic | Expression |
 |---------|------------|
 | Circle diagram | Three concentric rounds: point → line → circle |
 | Network graph | Discipline nodes + collision edges + product labels |
 | Inference-path tree | Input → theory, step by step and traceable |
+| Multi-angle advice map | Actionable suggestions from user value, evidence, engineering, narrative/research, and safety angles |
 
 ## File Structure
 
@@ -90,7 +91,8 @@ wusheng/
 ├── scripts/
 │   ├── wusheng_circle.py
 │   ├── wusheng_network.py
-│   └── wusheng_trajectory.py
+│   ├── wusheng_trajectory.py
+│   └── wusheng_advice_map.py
 ├── README.md
 └── install.sh
 ```
@@ -113,6 +115,7 @@ bash install.sh
 python3 scripts/wusheng_circle.py --input collision_data.json --output circle.png
 python3 scripts/wusheng_network.py --input collision_data.json --output network.png
 python3 scripts/wusheng_trajectory.py --input collision_data.json --output trajectory.png
+python3 scripts/wusheng_advice_map.py --input collision_data.json --output advice_map.png
 ```
 
 ## Theoretical Basis

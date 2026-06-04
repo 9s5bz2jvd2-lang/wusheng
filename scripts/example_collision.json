@@ -2,11 +2,26 @@
   "input": {
     "summary": "中医食养辨证体系",
     "deep_analysis": {
-      "frameworks": ["按证型分类（痰湿/气虚/阴虚）", "整体观辨证"],
-      "assumptions": ["人与自然相应", "食疗先于药疗"],
-      "boundaries": ["不适用于急性危重病", "个体差异大"],
-      "meta_patterns": ["阴阳对立统一", "五行相生相克"],
-      "gaps": ["缺个体化定量工具", "缺现代科学验证方法"]
+      "frameworks": [
+        "按证型分类（痰湿/气虚/阴虚）",
+        "整体观辨证"
+      ],
+      "assumptions": [
+        "人与自然相应",
+        "食疗先于药疗"
+      ],
+      "boundaries": [
+        "不适用于急性危重病",
+        "个体差异大"
+      ],
+      "meta_patterns": [
+        "阴阳对立统一",
+        "五行相生相克"
+      ],
+      "gaps": [
+        "缺个体化定量工具",
+        "缺现代科学验证方法"
+      ]
     }
   },
   "rounds": [
@@ -36,10 +51,18 @@
             }
           ],
           "return_block": {
-            "reusable_patterns": ["相空间映射法：任何分类体系都可映射为相空间"],
-            "gotchas": ["物理学是精确的，中医是模糊的——映射时不要强行精确化"],
-            "open_questions": ["证型转换是否可量化为临界现象？"],
-            "should_promote": ["相空间映射法"],
+            "reusable_patterns": [
+              "相空间映射法：任何分类体系都可映射为相空间"
+            ],
+            "gotchas": [
+              "物理学是精确的，中医是模糊的——映射时不要强行精确化"
+            ],
+            "open_questions": [
+              "证型转换是否可量化为临界现象？"
+            ],
+            "should_promote": [
+              "相空间映射法"
+            ],
             "do_not_promote": []
           }
         },
@@ -60,7 +83,9 @@
           "return_block": {
             "reusable_patterns": [],
             "gotchas": [],
-            "open_questions": ["'无为而食'能否发展为一种饮食哲学？"],
+            "open_questions": [
+              "'无为而食'能否发展为一种饮食哲学？"
+            ],
             "should_promote": [],
             "do_not_promote": []
           }
@@ -80,10 +105,16 @@
             }
           ],
           "return_block": {
-            "reusable_patterns": ["推荐系统框架可迁移到任何'个体化匹配'场景"],
-            "gotchas": ["协同过滤需要大量数据，中医领域数据稀缺"],
+            "reusable_patterns": [
+              "推荐系统框架可迁移到任何'个体化匹配'场景"
+            ],
+            "gotchas": [
+              "协同过滤需要大量数据，中医领域数据稀缺"
+            ],
             "open_questions": [],
-            "should_promote": ["推荐系统迁移框架"],
+            "should_promote": [
+              "推荐系统迁移框架"
+            ],
             "do_not_promote": []
           }
         },
@@ -104,7 +135,9 @@
           "return_block": {
             "reusable_patterns": [],
             "gotchas": [],
-            "open_questions": ["建筑学的'空间'概念能否映射为食养的'营养空间'？"],
+            "open_questions": [
+              "建筑学的'空间'概念能否映射为食养的'营养空间'？"
+            ],
             "should_promote": [],
             "do_not_promote": []
           }
@@ -136,10 +169,14 @@
             }
           ],
           "return_block": {
-            "reusable_patterns": ["负反馈调控模型可迁移到任何自稳态系统"],
+            "reusable_patterns": [
+              "负反馈调控模型可迁移到任何自稳态系统"
+            ],
             "gotchas": [],
             "open_questions": [],
-            "should_promote": ["负反馈健康模型"],
+            "should_promote": [
+              "负反馈健康模型"
+            ],
             "do_not_promote": []
           }
         },
@@ -159,7 +196,9 @@
           ],
           "return_block": {
             "reusable_patterns": [],
-            "gotchas": ["正念饮食的效果因人而异，不能作为普适方案"],
+            "gotchas": [
+              "正念饮食的效果因人而异，不能作为普适方案"
+            ],
             "open_questions": [],
             "should_promote": [],
             "do_not_promote": []
@@ -192,7 +231,9 @@
           "return_block": {
             "reusable_patterns": [],
             "gotchas": [],
-            "open_questions": ["动态稳态如何量化？"],
+            "open_questions": [
+              "动态稳态如何量化？"
+            ],
             "should_promote": [],
             "do_not_promote": []
           }
@@ -212,10 +253,16 @@
             }
           ],
           "return_block": {
-            "reusable_patterns": ["轨道稳定性可作为任何动态平衡系统的隐喻"],
-            "gotchas": ["天文学是精确的，人体是混沌的——隐喻不宜过度推演"],
+            "reusable_patterns": [
+              "轨道稳定性可作为任何动态平衡系统的隐喻"
+            ],
+            "gotchas": [
+              "天文学是精确的，人体是混沌的——隐喻不宜过度推演"
+            ],
             "open_questions": [],
-            "should_promote": ["轨道稳定性隐喻"],
+            "should_promote": [
+              "轨道稳定性隐喻"
+            ],
             "do_not_promote": []
           }
         }
@@ -237,8 +284,47 @@
   "final_output": {
     "theory": "动态稳态食养理论：健康不是固定在某一点的静态平衡，而是在代谢、环境、情绪等因缘不断变化中持续调整的动态稳态。食疗的作用是提供负反馈调控信号，帮助人体从'脱轨'状态回归稳态轨道。证型是稳态被打破后的相态标识，食材是调控信号的具体载体。",
     "derivation_path": "中医证型体系→物理学相空间映射→控制论负反馈模型→佛学缘起深化为动态稳态→天文学轨道隐喻验证",
-    "open_questions": ["动态稳态如何量化？", "正念饮食如何适配东方文化？"],
+    "open_questions": [
+      "动态稳态如何量化？",
+      "正念饮食如何适配东方文化？"
+    ],
     "confidence_overall": "类比",
-    "valuable_failures": ["轨道稳定性隐喻——启发价值高但不可过度推演"]
+    "valuable_failures": [
+      "轨道稳定性隐喻——启发价值高但不可过度推演"
+    ],
+    "angle_recommendations": [
+      {
+        "angle": "营养科学证据",
+        "suggestion": "把“动态稳态”拆成可用现代营养学核验的指标：能量摄入、膳食结构、代谢风险、主观饥饱感。",
+        "priority": "高",
+        "confidence": "实推",
+        "next_action": "列一张证据矩阵，区分已证实营养事实、类比解释和待验证假设。",
+        "risk_note": "不能把中医/天文隐喻写成现代医学疗效结论。"
+      },
+      {
+        "angle": "产品原型",
+        "suggestion": "把模型落成“状态评估→反馈建议→追踪调整”的三步小工具，而不是一开始做全功能系统。",
+        "priority": "高",
+        "confidence": "类比",
+        "next_action": "先做一个三日饮食记录后的动态反馈 demo。",
+        "risk_note": "避免自动诊断或给治疗处方。"
+      },
+      {
+        "angle": "用户体验",
+        "suggestion": "把“回到稳态轨道”转译为温柔、无羞耻感的日常语言。",
+        "priority": "中",
+        "confidence": "类比",
+        "next_action": "写 5 条面向普通人的解释话术。",
+        "risk_note": "不要让用户觉得自己“脱轨/失败”。"
+      },
+      {
+        "angle": "研究问题",
+        "suggestion": "把隐喻中的“轨道稳定性”改写成可检验研究问题：哪些饮食行为改变能提高体重/血糖/情绪的稳定性。",
+        "priority": "中",
+        "confidence": "猜想",
+        "next_action": "提出 2–3 个小样本可探索问题。",
+        "risk_note": "猜想必须标注，不能当成已有结论。"
+      }
+    ]
   }
 }

@@ -1,8 +1,8 @@
 ---
 name: 万物生
 description: |
-  当用户提到“万物生 / 生万物 / wusheng / 跨学科碰撞 / 创造力引擎 / 三轮碰撞 / 向内碰撞 / 向外碰撞 / 无限碰撞 / 三角定圆 / 圆理论”，或希望把一个理论、问题、产品想法、代码方案、营养科普方法、研究框架、艺术概念等拿去跨学科生成新框架、新假设、新产品方向、新视觉或新叙事时使用。此 skill 指导 agent 先让用户定边界，再执行“输入解析 → 碰撞模式选择 → 三轮碰撞 → 回归调和 → 可追溯输出/可视化 JSON”的流程；它强调创造但不编造，把产物分为实推/类比/猜想，并保留推导路径、失败样本和回归笔记。
-version: 1.1.0
+  当用户提到“万物生 / 生万物 / wusheng / 跨学科碰撞 / 创造力引擎 / 三轮碰撞 / 向内碰撞 / 向外碰撞 / 无限碰撞 / 三角定圆 / 圆理论”，或希望把一个理论、问题、产品想法、代码方案、营养科普方法、研究框架、艺术概念等拿去跨学科生成新框架、新假设、新产品方向、新视觉或新叙事时使用。此 skill 指导 agent 先让用户定边界，再执行“输入解析 → 碰撞模式选择 → 三轮碰撞 → 回归调和 → 可追溯输出/可视化 JSON / 多角度建议图”的流程；它强调创造但不编造，把产物分为实推/类比/猜想，并保留推导路径、失败样本和回归笔记。
+version: 1.2.0
 author: 王润圆（昆明医科大学营养与食品卫生学硕士，中国注册营养师）
 tags: [creativity, cross-disciplinary, collision, circle-theory, wusheng, progressive-disclosure]
 ---
@@ -63,7 +63,7 @@ wusheng_input:
     must_keep: ["不可改变的核心"]
     must_avoid: ["禁止方向/禁用学科/安全红线"]
     preferred_disciplines: ["用户指定学科，可空"]
-  output_form: "短答|完整报告|工作坊流程|JSON|可视化图片"
+  output_form: "短答|完整报告|工作坊流程|JSON|可视化图片|多角度建议图"
   risk_level: "低|中|高（医学/法律/事实强约束=高）"
 ```
 
@@ -87,7 +87,7 @@ wusheng_input:
 | 选择或扩展学科库 | `reference/discipline-library.md` |
 | 写更精准的用户碰撞指南 | `reference/collision-guide-writing.md` |
 | 组织回归块、枢纽调和、回归笔记 | `reference/return-harmony.md` |
-| 输出 JSON 并生成图 | `reference/visual-output.md` + `scripts/` |
+| 输出 JSON、生成图、从多角度给建议 | `reference/visual-output.md` + `scripts/` |
 
 不要一次性把所有 reference 读完；按任务需要加载。
 
@@ -220,12 +220,16 @@ return_block:
 
 ## 5. 有价值的失败
 
-## 6. 下一步入口
+## 6. 多角度建议
+| 角度 | 建议 | 优先级 | 置信 | 下一步 | 边界/风险 |
+|---|---|---|---|---|---|
+
+## 7. 下一步入口
 ```
 
 ### 给机器/可视化的输出
 
-需要生成图时，同时输出 `collision_data.json`，结构遵守 `reference/visual-output.md`：包含 `input.deep_analysis`、`rounds[]`、各 daemon/视角、`collision_products`、`return_block`、`final_output`。
+需要生成图时，同时输出 `collision_data.json`，结构遵守 `reference/visual-output.md`：包含 `input.deep_analysis`、`rounds[]`、各 daemon/视角、`collision_products`、`return_block`、`final_output`，以及 `final_output.angle_recommendations[]`（用于多角度建议图）。
 
 随后可运行：
 
@@ -233,6 +237,7 @@ return_block:
 python3 scripts/wusheng_circle.py --input collision_data.json --output circle.png
 python3 scripts/wusheng_network.py --input collision_data.json --output network.png
 python3 scripts/wusheng_trajectory.py --input collision_data.json --output trajectory.png
+python3 scripts/wusheng_advice_map.py --input collision_data.json --output advice_map.png
 ```
 
 ---
@@ -246,8 +251,9 @@ python3 scripts/wusheng_trajectory.py --input collision_data.json --output traje
 3. **置信诚实**：实推/类比/猜想分开，不把灵感包装成事实。
 4. **回归完整**：每轮都有回归调和，不让分支散落在聊天里。
 5. **失败有价值**：至少记录一个失败方向或被排除方向。
-6. **下一步明确**：用户知道接下来如何验证、落地、继续碰撞。
-7. **可迁移**：若产出方法论，应说明哪些可入 skill/knowledge/pad，哪些只是本次产物。
+6. **建议有角度**：至少从用户价值、证据/事实、工程落地、叙事传播/研究问题等 3 个角度给建议；每条建议有下一步和风险边界。
+7. **下一步明确**：用户知道接下来如何验证、落地、继续碰撞。
+8. **可迁移**：若产出方法论，应说明哪些可入 skill/knowledge/pad，哪些只是本次产物。
 
 ---
 
@@ -273,6 +279,7 @@ python3 scripts/wusheng_trajectory.py --input collision_data.json --output traje
 | 分支太多收不回来 | 没有枢纽调和 | 每轮只保留 3–5 个种子、1–2 个半成品 |
 | 跨学科只是贴标签 | 没有结构映射 | 要求说明“哪个学科结构”映射到“输入哪个结构” |
 | 用户不知怎么继续 | 没写回归笔记 | 补“下次入口 / 待验证 / 可落地小实验” |
+| 用户说“还要输出一个图/从不同角度建议” | 只产出了文字或三轮路径图，没把建议结构化 | 补 `final_output.angle_recommendations[]`，运行 `wusheng_advice_map.py` 生成多角度建议图 |
 
 ---
 

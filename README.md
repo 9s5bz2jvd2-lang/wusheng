@@ -79,13 +79,14 @@
 
 ## 可视化输出
 
-三种图形由 Python 脚本自动生成：
+四种图形由 Python 脚本自动生成：
 
 | 图形 | 表达 |
 |------|------|
 | 圆图 | 三轮同心圆，点→线→圆 |
 | 网状图 | 学科节点+碰撞边+产物标注 |
 | 推演路径树 | 输入→理论，步步可溯 |
+| 多角度建议图 | 从用户价值/证据/工程/叙事/研究等角度提出可行动建议 |
 
 ## 文件结构
 
@@ -101,11 +102,12 @@ wusheng/
 │   ├── six-strategies.md           # 六种对撞策略
 │   ├── discipline-library.md       # 学科库管理
 │   ├── return-harmony.md           # 回归调和机制（圆理论承接）
-│   └── visual-output.md            # 可视化输出规范+JSON格式
+│   └── visual-output.md            # 可视化输出规范+JSON格式+建议角度
 ├── scripts/
 │   ├── wusheng_circle.py           # 圆图生成器
 │   ├── wusheng_network.py          # 网状图生成器
-│   └── wusheng_trajectory.py       # 推演路径树生成器
+│   ├── wusheng_trajectory.py       # 推演路径树生成器
+│   └── wusheng_advice_map.py       # 多角度建议图生成器
 ├── README.md
 └── install.sh
 ```
@@ -128,6 +130,7 @@ bash install.sh
 python3 scripts/wusheng_circle.py --input collision_data.json --output circle.png
 python3 scripts/wusheng_network.py --input collision_data.json --output network.png
 python3 scripts/wusheng_trajectory.py --input collision_data.json --output trajectory.png
+python3 scripts/wusheng_advice_map.py --input collision_data.json --output advice_map.png
 ```
 
 ## 理论基础

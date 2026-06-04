@@ -233,14 +233,19 @@ def main():
     if args.all:
         base = Path(args.output).stem
         outdir = Path(args.output).parent
-        # 调用另外两个脚本
-        for script in ['wusheng_network.py', 'wusheng_trajectory.py']:
+        # 调用另外三个脚本，生成完整可视化包
+        companion_scripts = [
+            ('wusheng_network.py', 'network'),
+            ('wusheng_trajectory.py', 'trajectory'),
+            ('wusheng_advice_map.py', 'advice_map'),
+        ]
+        for script, suffix in companion_scripts:
             script_path = Path(__file__).parent / script
             if script_path.exists():
-                out_name = base.replace('circle', script.split('_')[1].split('.')[0])
+                out_name = base.replace('circle', suffix) if 'circle' in base else f'{base}_{suffix}'
                 out_path = outdir / f'{out_name}.png'
                 subprocess.run([sys.executable, str(script_path),
-                              '--input', args.input, '--output', str(out_path)])
+                              '--input', args.input, '--output', str(out_path)], check=True)
 
 
 if __name__ == '__main__':
