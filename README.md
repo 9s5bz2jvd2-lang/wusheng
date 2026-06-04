@@ -1,5 +1,7 @@
 # 万物生 · 跨学科创造力引擎
 
+[English version](README.en.md)
+
 <p align="center">
   <img src="wusheng-banner.png" alt="万物生" width="800">
 </p>
