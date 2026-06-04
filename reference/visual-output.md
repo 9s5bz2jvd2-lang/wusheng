@@ -189,6 +189,8 @@
 
 **输出**：PNG，16×12 inch，300dpi
 
+**字体注意**：若中文字体显示为方框，先安装或启用 PingFang / Hiragino Sans GB / Arial Unicode MS / Noto Sans CJK / Microsoft YaHei / SimHei 等 CJK 字体；脚本已按此顺序设置 fallback。
+
 ### 3. 推演路径树（wusheng_trajectory.py）
 
 **视觉设计**：
@@ -223,6 +225,8 @@
 6. **伦理安全**：会不会误导、越权、制造羞耻或过度承诺？
 
 **输出**：PNG，16×12 inch，300dpi
+
+**字体注意**：若中文字体显示为方框，先安装或启用 PingFang / Hiragino Sans GB / Arial Unicode MS / Noto Sans CJK / Microsoft YaHei / SimHei 等 CJK 字体；脚本已按此顺序设置 fallback。
 
 ---
 

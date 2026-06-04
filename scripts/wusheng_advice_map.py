@@ -15,7 +15,30 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from matplotlib.patches import FancyArrowPatch
 
-plt.rcParams['font.sans-serif'] = ['Noto Sans CJK JP', 'Noto Serif CJK JP', 'DejaVu Sans']
+# 中文字体支持：优先注册可用 CJK 字体，避免导出 PNG 时中文变方框
+from matplotlib import font_manager
+_CJK_FONT_PATHS = [
+    '/System/Library/Fonts/PingFang.ttc',
+    '/System/Library/Fonts/Hiragino Sans GB.ttc',
+    '/System/Library/Fonts/STHeiti Medium.ttc',
+    '/System/Library/Fonts/STHeiti Light.ttc',
+    '/System/Library/Fonts/Supplemental/Arial Unicode.ttf',
+    '/Library/Fonts/Arial Unicode.ttf',
+    '/System/Library/Fonts/Supplemental/Songti.ttc',
+]
+for _font_path in _CJK_FONT_PATHS:
+    if Path(_font_path).exists():
+        try:
+            font_manager.fontManager.addfont(_font_path)
+        except Exception:
+            pass
+plt.rcParams['font.sans-serif'] = [
+    'PingFang HK', 'PingFang SC', 'Hiragino Sans GB', 'Hiragino Sans',
+    'Arial Unicode MS', 'Heiti TC', 'Songti SC',
+    'Noto Sans CJK SC', 'Noto Sans CJK JP', 'Noto Serif CJK JP',
+    'Microsoft YaHei', 'SimHei', 'WenQuanYi Zen Hei', 'DejaVu Sans'
+]
+plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['axes.unicode_minus'] = False
 
 PRIORITY_COLORS = {
@@ -100,9 +123,9 @@ def draw_advice_map(data, output_path):
 
     # central body
     center_box = dict(boxstyle='round,pad=0.8', facecolor='#2C3E50', edgecolor='#2C3E50', alpha=0.95)
-    ax.text(0, 0.18, truncate(input_summary, 28), ha='center', va='center', fontsize=13,
+    ax.text(0, 0.28, f"主题：{truncate(input_summary, 24)}", ha='center', va='center', fontsize=13,
             color='white', fontweight='bold', bbox=center_box)
-    ax.text(0, -0.45, truncate(theory, 48), ha='center', va='center', fontsize=10,
+    ax.text(0, -0.50, f"成型产物：{truncate(theory, 42)}", ha='center', va='center', fontsize=10,
             color='#2C3E50', fontweight='bold',
             bbox=dict(boxstyle='round,pad=0.45', facecolor='#FDEBD0', edgecolor='#E67E22', linewidth=2))
 
@@ -133,7 +156,7 @@ def draw_advice_map(data, output_path):
         ax.add_patch(arrow)
 
         ha = 'left' if lx >= 0 else 'right'
-        text = f"{angle_name}\n建议：{truncate(suggestion, 34)}"
+        text = f"角度：{angle_name}\n建议：{truncate(suggestion, 34)}"
         if next_action:
             text += f"\n下一步：{truncate(next_action, 30)}"
         if risk_note:
