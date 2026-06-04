@@ -47,6 +47,7 @@ if [ $? -eq 0 ]; then
     echo "     python3 scripts/wusheng_circle.py --input data.json --output circle.png"
     echo "     python3 scripts/wusheng_network.py --input data.json --output network.png"
     echo "     python3 scripts/wusheng_trajectory.py --input data.json --output trajectory.png"
+echo "     python3 scripts/wusheng_advice_map.py --input data.json --output advice_map.png"
 else
     echo "❌ 验证失败"
     exit 1

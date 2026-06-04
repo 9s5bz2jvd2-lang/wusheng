@@ -4,13 +4,14 @@
 
 ## 概述
 
-万物生的可视化输出包含三种图形，由 Python 脚本根据碰撞 JSON 数据生成：
+万物生的可视化输出包含四种图形，由 Python 脚本根据碰撞 JSON 数据生成：
 
 | 图形 | 脚本 | 表达什么 |
 |------|------|---------|
 | **圆图** | `scripts/wusheng_circle.py` | 三轮碰撞的同心圆结构——点→线→圆 |
 | **网状图** | `scripts/wusheng_network.py` | 学科节点 + 碰撞连线 + 产物标注——万物互联 |
 | **推演路径树** | `scripts/wusheng_trajectory.py` | 从输入到最终理论的推理链——来龙去脉 |
+| **多角度建议图** | `scripts/wusheng_advice_map.py` | 从用户价值、证据、工程、叙事/研究等角度给行动建议 |
 
 ---
 
@@ -130,7 +131,17 @@
     "derivation_path": "推演路径的文字描述",
     "open_questions": ["未解决问题1", "未解决问题2"],
     "confidence_overall": "类比",
-    "valuable_failures": ["有价值的失败1"]
+    "valuable_failures": ["有价值的失败1"],
+    "angle_recommendations": [
+      {
+        "angle": "用户价值|证据/事实|工程落地|叙事传播|研究问题|商业模式|伦理安全",
+        "suggestion": "从该角度提出的一条具体建议",
+        "priority": "高|中|低",
+        "confidence": "实推|类比|猜想",
+        "next_action": "下一步可执行动作",
+        "risk_note": "边界、风险或必须核验处"
+      }
+    ]
   }
 }
 ```
@@ -178,6 +189,8 @@
 
 **输出**：PNG，16×12 inch，300dpi
 
+**字体注意**：若中文字体显示为方框，先安装或启用 PingFang / Hiragino Sans GB / Arial Unicode MS / Noto Sans CJK / Microsoft YaHei / SimHei 等 CJK 字体；脚本已按此顺序设置 fallback。
+
 ### 3. 推演路径树（wusheng_trajectory.py）
 
 **视觉设计**：
@@ -190,6 +203,30 @@
 - 节点颜色：成型=绿，失败=红，可修=黄
 
 **输出**：PNG，18×10 inch，300dpi
+
+### 4. 多角度建议图（wusheng_advice_map.py）
+
+**何时必须生成**：
+- 用户说“还要输出一个图”“从不同角度给建议”“给我一张建议图/路线图/角度图”。
+- 输出对象不只是思想路径，还需要转成下一步行动。
+
+**视觉设计**：
+- 中心 = 原始输入 + 成型产物。
+- 外圈 = 不同建议角度：用户价值、证据/事实、工程落地、叙事传播、研究问题、商业模式、伦理安全等。
+- 每个角度节点包含：建议、下一步、风险边界、优先级、置信度。
+- 颜色 = 优先级（高/中/低）；形状 = 置信度（实推/类比/猜想）。
+
+**建议角度选择法**：
+1. **用户价值**：谁会受益？最小可见收益是什么？
+2. **证据/事实**：哪些是事实，哪些是类比，哪些是猜想？哪些必须核验？
+3. **工程落地**：能否拆成数据、流程、界面、评测、脚本或原型？
+4. **叙事传播**：普通人怎么听懂？隐喻是否安全？
+5. **研究问题**：哪些猜想可以变成可检验问题？
+6. **伦理安全**：会不会误导、越权、制造羞耻或过度承诺？
+
+**输出**：PNG，16×12 inch，300dpi
+
+**字体注意**：若中文字体显示为方框，先安装或启用 PingFang / Hiragino Sans GB / Arial Unicode MS / Noto Sans CJK / Microsoft YaHei / SimHei 等 CJK 字体；脚本已按此顺序设置 fallback。
 
 ---
 
@@ -208,6 +245,9 @@ python3 scripts/wusheng_network.py --input collision_data.json --output network.
 # 生成推演路径树
 python3 scripts/wusheng_trajectory.py --input collision_data.json --output trajectory.png
 
-# 一键生成全部
-python3 scripts/wusheng_circle.py --input collision_data.json --all
+# 生成多角度建议图
+python3 scripts/wusheng_advice_map.py --input collision_data.json --output advice_map.png
+
+# 一键生成全部四种图
+python3 scripts/wusheng_circle.py --input collision_data.json --output circle.png --all
 ```

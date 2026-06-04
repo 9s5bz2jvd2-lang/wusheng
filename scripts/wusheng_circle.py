@@ -18,8 +18,30 @@ import matplotlib.patches as mpatches
 from matplotlib.patches import FancyArrowPatch
 import numpy as np
 
-# 中文字体支持
-plt.rcParams['font.sans-serif'] = ['Noto Sans CJK JP', 'Noto Serif CJK JP', 'DejaVu Sans']
+# 中文字体支持：优先注册可用 CJK 字体，避免导出 PNG 时中文变方框
+from matplotlib import font_manager
+_CJK_FONT_PATHS = [
+    '/System/Library/Fonts/PingFang.ttc',
+    '/System/Library/Fonts/Hiragino Sans GB.ttc',
+    '/System/Library/Fonts/STHeiti Medium.ttc',
+    '/System/Library/Fonts/STHeiti Light.ttc',
+    '/System/Library/Fonts/Supplemental/Arial Unicode.ttf',
+    '/Library/Fonts/Arial Unicode.ttf',
+    '/System/Library/Fonts/Supplemental/Songti.ttc',
+]
+for _font_path in _CJK_FONT_PATHS:
+    if Path(_font_path).exists():
+        try:
+            font_manager.fontManager.addfont(_font_path)
+        except Exception:
+            pass
+plt.rcParams['font.sans-serif'] = [
+    'PingFang HK', 'PingFang SC', 'Hiragino Sans GB', 'Hiragino Sans',
+    'Arial Unicode MS', 'Heiti TC', 'Songti SC',
+    'Noto Sans CJK SC', 'Noto Sans CJK JP', 'Noto Serif CJK JP',
+    'Microsoft YaHei', 'SimHei', 'WenQuanYi Zen Hei', 'DejaVu Sans'
+]
+plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['axes.unicode_minus'] = False
 
 # ===== 颜色方案 =====
@@ -233,14 +255,19 @@ def main():
     if args.all:
         base = Path(args.output).stem
         outdir = Path(args.output).parent
-        # 调用另外两个脚本
-        for script in ['wusheng_network.py', 'wusheng_trajectory.py']:
+        # 调用另外三个脚本，生成完整可视化包
+        companion_scripts = [
+            ('wusheng_network.py', 'network'),
+            ('wusheng_trajectory.py', 'trajectory'),
+            ('wusheng_advice_map.py', 'advice_map'),
+        ]
+        for script, suffix in companion_scripts:
             script_path = Path(__file__).parent / script
             if script_path.exists():
-                out_name = base.replace('circle', script.split('_')[1].split('.')[0])
+                out_name = base.replace('circle', suffix) if 'circle' in base else f'{base}_{suffix}'
                 out_path = outdir / f'{out_name}.png'
                 subprocess.run([sys.executable, str(script_path),
-                              '--input', args.input, '--output', str(out_path)])
+                              '--input', args.input, '--output', str(out_path)], check=True)
 
 
 if __name__ == '__main__':
