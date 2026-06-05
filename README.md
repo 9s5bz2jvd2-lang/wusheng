@@ -150,3 +150,5 @@ python3 scripts/wusheng_advice_map.py --input collision_data.json --output advic
 ## 许可
 
 MIT License
+
+<!-- Maintainer update: Runyuan Wang (9s5bz2jvd2-lang). -->

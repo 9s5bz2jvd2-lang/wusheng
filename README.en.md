@@ -131,3 +131,5 @@ Runyuan Wang, M.S. in Nutrition and Food Hygiene, Kunming Medical University; Ch
 ## License
 
 MIT License
+
+<!-- Maintainer update: Runyuan Wang (9s5bz2jvd2-lang). -->

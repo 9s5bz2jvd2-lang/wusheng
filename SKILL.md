@@ -302,3 +302,5 @@ python3 scripts/wusheng_advice_map.py --input collision_data.json --output advic
 4. 是否有下一次继续碰撞的入口要写入 pad？
 
 **一生二，二生三，三生万物；万物归圆，方能再生。**
+
+<!-- Maintainer update: Runyuan Wang (9s5bz2jvd2-lang). -->
